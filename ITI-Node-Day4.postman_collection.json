@@ -1,0 +1,551 @@
+{
+  "info": {
+    "_postman_id": "7d1fc754-6fee-4fb8-9b2e-0954d8c39d10",
+    "name": "ITI-Node-Day4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29782867"
+  },
+  "item": [
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "Get All Posts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "posts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/posts",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "50"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"32-w65hL5hzVQwTC2bI5a0WXWvrnBY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 17:38:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Posts Fetched successfully\",\n    \"data\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"My first Post\",\r\n  \"content\": \"This is the content of my first post.\",\r\n  \"author\": \"697e4ad1dffd8fb4e0c0ed6e\",\r\n  \"tag\": [\"typescript\", \"nodejs\", \"blog\"],\r\n  \"published\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/posts/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Post Created Successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"My first Post\",\r\n  \"content\": \"This is the content of my first post.\",\r\n  \"author\": \"697e4ad1dffd8fb4e0c0ed6e\",\r\n  \"tag\": [\"typescript\", \"nodejs\", \"blog\"],\r\n  \"published\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/posts/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "331"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"14b-wcUdd9ykLwOUJQ/Es+LQo9kmmdM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 18:33:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Post Created Successfully\",\n    \"data\": {\n        \"title\": \"My first Post\",\n        \"content\": \"This is the content of my first post.\",\n        \"author\": \"697e4ad1dffd8fb4e0c0ed6e\",\n        \"tag\": [\n            \"typescript\",\n            \"nodejs\",\n            \"blog\"\n        ],\n        \"published\": true,\n        \"_id\": \"697e4b01dffd8fb4e0c0ed70\",\n        \"createdAt\": \"2026-01-31T18:33:37.306Z\",\n        \"updatedAt\": \"2026-01-31T18:33:37.306Z\",\n        \"__v\": 0\n    }\n}"
+            },
+            {
+              "name": "Validation Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"My first Post\",\r\n  \"content\": \"This is the content of my first post.\",\r\n  \"author\": \"697e4ad1dffd8fb4e0c0ed6e\",\r\n  \"tag\": [\"typescript\", \"nodejs\", \"blog\"],\r\n  \"published\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/posts/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "123"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7b-vSGf+uKEl1aMQUmqVyqwGexYPvc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 18:44:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Too small: expected string to have >=5 characters\",\n    \"error\": \"Too small: expected string to have >=5 characters\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Post By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/posts/697e4dc589acde6798b81ee8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "697e4dc589acde6798b81ee8"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/posts/697e4dc589acde6798b81ee8",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts",
+                    "697e4dc589acde6798b81ee8"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "331"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"14b-1NhW7JDam9lU6WHmnAT7qkMBI9Y\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 19:09:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Post Fetched Successfully\",\n    \"data\": {\n        \"_id\": \"697e4dc589acde6798b81ee8\",\n        \"title\": \"My first Post\",\n        \"content\": \"This is the content of my first post.\",\n        \"author\": \"697e4ad1dffd8fb4e0c0ed6e\",\n        \"tag\": [\n            \"typescript\",\n            \"nodejs\",\n            \"blog\"\n        ],\n        \"published\": true,\n        \"createdAt\": \"2026-01-31T18:45:25.328Z\",\n        \"updatedAt\": \"2026-01-31T18:45:25.328Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Updated post title\",\r\n    \"content\": \"This is the updated content of the post.\",\r\n    \"tag\": [\r\n        \"updated\",\r\n        \"typescript\",\r\n        \"nodejs\"\r\n    ],\r\n    \"published\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/posts/697e4dc589acde6798b81ee8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "697e4dc589acde6798b81ee8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Updated post title\",\r\n    \"content\": \"This is the updated content of the post.\",\r\n    \"tag\": [\r\n        \"updated\",\r\n        \"typescript\",\r\n        \"nodejs\"\r\n    ],\r\n    \"published\": false\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/posts/697e4dc589acde6798b81ee8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "697e4dc589acde6798b81ee8"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Updated post title\",\r\n    \"content\": \"This is the updated content of the post.\",\r\n    \"tag\": [\r\n        \"updated\",\r\n        \"typescript\",\r\n        \"nodejs\"\r\n    ],\r\n    \"published\": false\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/posts/697e4dc589acde6798b81ee8",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts",
+                    "697e4dc589acde6798b81ee8"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "39"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"27-ApdGuEKF5DvnjukxrpHUpaQnnd8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 19:51:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Post deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Omar\",\r\n  \"email\": \"omar@example.com\",\r\n  \"password\": \"StrongP@ssw0rd!\",\r\n  \"age\": 25\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "User Created Successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Omar\",\r\n  \"email\": \"omar@example.com\",\r\n  \"password\": \"StrongP@ssw0rd!\",\r\n  \"age\": 25\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/users",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "260"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"104-4B87O2jQiot42QkIq9jLimQInps\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 31 Jan 2026 18:32:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"name\": \"Omar\",\n        \"email\": \"omar@example.com\",\n        \"password\": \"StrongP@ssw0rd!\",\n        \"role\": \"user\",\n        \"age\": 25,\n        \"_id\": \"697e4ad1dffd8fb4e0c0ed6e\",\n        \"createdAt\": \"2026-01-31T18:32:49.265Z\",\n        \"updatedAt\": \"2026-01-31T18:32:49.265Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
