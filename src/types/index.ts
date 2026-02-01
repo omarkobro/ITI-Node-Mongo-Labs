@@ -29,3 +29,14 @@ export interface IGenralSchema {
     params?: z.ZodSchema;
     query?: z.ZodSchema;
 }
+
+
+export interface ITokenPayload {
+    userId: string;
+    role: Role;
+}
+
+
+export interface IAuthRequest extends Request {
+    user?: ITokenPayload
+}
