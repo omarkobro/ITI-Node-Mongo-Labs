@@ -26,12 +26,33 @@ class UsersController {
       .json({ message: 'User fetched successfully', data: user });
   }
 
-  static async createUser(req: Request, res: Response, next: NextFunction) {
-    const user = await UserService.createUser(req.body);
-    return res
-      .status(201)
-      .json({ message: 'User created successfully', data: user });
+  static async signUp(req: Request, res: Response, next: NextFunction) {
+  try {
+    const user = await UserService.signUp(req.body);
+
+    return res.status(201).json({
+      message: 'User created successfully',
+      data: user,
+    });
+  } catch (err) {
+    next(err);
   }
+}
+
+static async signIn(req: Request, res: Response, next: NextFunction) {
+  try {
+    const { email, password } = req.body;
+
+    const result = await UserService.signIn(email, password);
+
+    return res.status(200).json({
+      message: 'sign in successfully',
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
 
   static async updateUser(
     req: Request<IParamsWithId>,

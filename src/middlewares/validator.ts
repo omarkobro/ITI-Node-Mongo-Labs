@@ -12,6 +12,8 @@ const validateSchema = (schema: IGenralSchema) => {
                 const result = schema[key as keyof IGenralSchema]?.safeParse(req[key as keyof Request]);
 
                 if (result && result.error && result.error.issues) {
+                    console.log(result.error);
+                    
                     throw new APIError(result.error.issues[0].message, 400);
                 }
             }

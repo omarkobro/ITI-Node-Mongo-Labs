@@ -1,23 +1,20 @@
 import { Router } from 'express';
 import UsersController from '../controllers/users.controller';
 import validateSchema from '../middlewares/validator';
-import { createUserSchema } from '../schemas/users';
+import { createUserSchema, signInSchema, signUpSchema } from '../schemas/users';
 
 const router = Router();
 
-// get all users
 router.get('/', UsersController.getAllUsers);
 
-// get with id
 router.get('/:id', UsersController.getUserById);
 
-// create a new user
-router.post('/', validateSchema(createUserSchema), UsersController.createUser);
+router.post('/signUp', validateSchema(signUpSchema), UsersController.signUp);
 
-// update with id
+router.post('/login', validateSchema(signInSchema), UsersController.signIn);
+
 router.patch('/:id', UsersController.updateUser);
 
-// delete with id
 router.delete('/:id', UsersController.deleteUser);
 
 export default router;

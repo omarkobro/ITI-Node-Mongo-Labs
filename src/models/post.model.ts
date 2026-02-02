@@ -28,7 +28,6 @@ const postSchema = new mongoose.Schema<postModelInteface>(
   { timestamps: true },
 );
 
-postSchema.index({ author: 1 }, { unique: true });
 postSchema.index({ published: 1 });
 
 const Post = mongoose.model<postModelInteface>('posts', postSchema);

@@ -1,10 +1,10 @@
-import { Document, ObjectId } from 'mongoose';
+import mongoose, { Document, ObjectId } from 'mongoose';
 import z from 'zod';
 
 export interface postInterface {
   title: string;
   content: string;
-  author: ObjectId; //check it out
+  author: mongoose.Types.ObjectId; 
   tag: string[];
   published: boolean;
   createdAt?: Date;

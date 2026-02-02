@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import { Document } from 'mongoose';
 import { z } from 'zod';
 
@@ -16,6 +17,7 @@ export interface IUser {
     createdAt?: Date;
     updatedAt?: Date;
 }
+export type IUserResponse = Omit<IUser, 'password'>;
 
 export interface IUserDocument extends IUser, Document { }
 

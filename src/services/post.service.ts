@@ -1,46 +1,74 @@
-import { ObjectId } from 'mongoose';
+import mongoose from 'mongoose';
 import Post from '../models/post.model';
 import { postInterface } from '../types/post.types';
+import APIError from '../utils/APIError';
 
 class postService {
-  //get all posts
-  static async getAllPosts() {
-    const posts = await Post.find({});
-    return posts;
+  // GET ALL POSTS
+  static async getAllPosts(userId?: string) {
+    const posts = await Post.find().populate('author', 'name email').lean();
+
+return posts.map(post => {
+  const author = post.author as any;
+  return {
+    ...post,
+    isOwner: userId ? author._id.toString() === userId : false,
+  };
+});
   }
 
-  //create Post
-
-  static async createPost(post: postInterface) {
-    const { title, content, author, tag, published } = post;
-
+  // CREATE POST
+  static async createPost(post: postInterface, userId: string) {
     const newPost = await Post.create({
-      title,
-      content,
-      author,
-      tag,
-      published,
+      ...post,
+      author: new mongoose.Types.ObjectId(userId),
     });
-
     return newPost;
   }
 
-  //get Post by ID
-  static async getPostById(id: string) {
-    const post = await Post.findById(id);
+  // GET POST BY ID
+  static async getPostById(id: string, userId?: string) {
+    const post = await Post.findById(id)
+      .populate('author', 'name email')
+      .lean();
+
+    if (!post) return null;
+
+    return {
+      ...post,
+  isOwner: userId ? post.author._id.toString() === userId : false,
+    };
+  }
+
+  // UPDATE POST
+  static async updatePostById(
+    postId: string,
+    updateData: Partial<postInterface>,
+    userId: string,
+  ) {
+    const post = await Post.findById(postId);
+    if (!post) return null;
+
+    if (post.author.toString() !== userId) {
+      throw new APIError('Forbidden', 403);
+    }
+
+    Object.assign(post, updateData);
+    await post.save();
     return post;
   }
 
-  static async updatePost(postId: string, updateData: Partial<postInterface>) {
-    return Post.findByIdAndUpdate(postId, updateData, {
-      new: true,
-      runValidators: true,
-    });
-  }
+  // DELETE POST
+  static async deletePostById(postId: string, userId: string) {
+    const post = await Post.findById(postId);
+    if (!post) return null;
 
-  static async deletePostById(postId: string) {
-    const deletedPost = await Post.findByIdAndDelete(postId);
-    return deletedPost;
+    if (post.author.toString() !== userId) {
+      throw new APIError('Forbidden', 403);
+    }
+
+    await post.deleteOne();
+    return post;
   }
 }
 

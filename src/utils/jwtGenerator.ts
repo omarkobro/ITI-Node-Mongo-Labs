@@ -21,3 +21,5 @@ async function generateToken(data: object): Promise<string> {
     });
   });
 }
+
+export default generateToken
