@@ -8,5 +8,9 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
+        uses: action/checkout@v4
       - name: run shell script
         run: echo "first wf"
+      - name: run shell files
+        run: chmod +x script.sh
