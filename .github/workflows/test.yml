@@ -1,0 +1,12 @@
+name: print hello world
+
+on:
+  push:
+  branches: main
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run shell script
+        run: echo "first wf"

@@ -22,9 +22,9 @@ app.use(errorHandler); // error handler middleware => 1 only in the server => ca
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);
   mongoose.connect(`${process.env.MONGO_URI}/${process.env.DB_NAME}`).then(() => {
-    console.log('✅✅ Connected to MongoDB');
+    console.log('Connected to DB successfully');
   }).catch((err) => {
-    console.log('❌❌ Connected to MongoDB');
+    console.log('Failed to connect to DB');
     console.log(err);
   });
 });
