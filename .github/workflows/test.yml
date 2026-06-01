@@ -2,7 +2,7 @@ name: print hello world
 
 on:
   push:
-  branches: main
+    branches: main
 
 jobs:
   first_job:
